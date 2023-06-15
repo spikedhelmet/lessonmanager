@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/calendar.css" />
+  <title>YouWillSpeak</title>
+</head>
+
+<body>
+  <section class="container">
+    <!-- * MENU -->
+    <div class="menu">
+      <div class="logo">
+        <!-- <img class="logo" src="/img/yws logo.jpg" alt=""> -->
+        <h2>You Will Speak</h2>
+        <h3>they will listen</h3>
+      </div>
+      <div class="profile-pic-container">
+        <img class="profile-pic" src="/img/brad-pitt.jpeg" alt="brad-pitt--avatar" />
+      </div>
+      <p class="username">Brad Pitt</p>
+      <ul class="menu-list">
+        <li>
+          <button class="lessons list-item menu-button--styling" href="#">
+            <i class="ph ph-chalkboard-teacher"></i>Lessons
+          </button>
+        </li>
+        <li>
+          <button class="groups list-item menu-button--styling" href="#">
+            <i class="ph ph-student"></i></i>My Groups
+          </button>
+        </li>
+        <li>
+          <button class="past-lessons list-item menu-button--styling" href="#"><i class="ph ph-check-square"></i>Past
+            Lessons
+          </button>
+        </li>
+        <li>
+          <button class="log-out list-item menu-button--styling" href="#"><i class="ph ph-sign-out"></i>Log out</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- * LESSONS PAGE -->
+    <section class="lessons-page flex-column-center-width--80 interface">
+      <p class="tooltip-text">Click on the table rows to open the lesson menu</p>
+      <main class="table">
+        <div class="table-body">
+          <div class="table-head table-grid">
+            <p>id</p>
+            <p>Level</p>
+            <p>Location</p>
+            <p>Students</p>
+            <p>Date</p>
+            <p>Time</p>
+            <p>Status</p>
+          </div>
+          <ul class="lessons-list table-content">
+
+          </ul>
+        </div>
+      </main>
+    </section>
+
+    <!-- *MY GROUPS PAGE -->
+    <section class="mygroups flex-column-center-width--80 interface hidden">
+      <main class="table">
+        <div class="table-body">
+          <div class="table-head table-grid groups-grid">
+            <p>id</p>
+            <p>Level</p>
+            <p>Location</p>
+            <p>Students</p>
+            <p>Days</p>
+            <p>Time</p>
+            <p>Classroom</p>
+          </div>
+          <div>
+            <ul class="mygroups-table-content table-content">
+            </ul>
+
+            <div class="flex-center">
+              <button class="btn-newgroup btn-submit flex-center" type="button">
+                <i class="ph ph-plus-circle"></i>Add New Group
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- *NEW GROUP MENU -->
+      <div class="new-group-popup popup">
+        <div class="new-group-menu flex-column">
+          <div class="form-container">
+            <div>
+              <form action="">
+                <input class="searchbar" type="text" name="search" placeholder="Search users..">
+                <button class="clear">clear</button>
+              </form>
+            </div>
+            <div class="results-container">
+              <ul class="results-list" id="list">
+
+              </ul>
+            </div>
+          </div>
+
+          <div class="form-container">
+            <p>Lesson Format:</p>
+            <form>
+              <input type="radio" id="online" name="lesson-format" value="online">
+              <label for="online">Online</label><br>
+              <input type="radio" id="on-site" name="lesson-format" value="on-site">
+              <label for="on-site">On-site</label>
+            </form>
+          </div>
+          <div class="form-container">
+            <p>Group Level:</p>
+            <form>
+              <select title="Choose the level of the group" class="group-level-select" name="group-level">
+                <option value="beginner">Beginner</option>
+                <option value="elementary">Elementary</option>
+                <option value="pre-intermediate">Pre-Intermediate</option>
+                <option value="pintermediate">Intermediate</option>
+                <option value="upper-intermediate">Upper-Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </form>
+          </div>
+          <div class="form-container">
+            <p>Lesson Days:</p>
+            <form class="lesson-days">
+              <input class="lesson-days-checkbox" type="checkbox" id="monday" name="monday" value="monday">
+              <label for="monday">Monday</label><br>
+              <input class="lesson-days-checkbox" type="checkbox" id="tuesday" name="tuesday" value="tuesday">
+              <label for="tuesday">Tuesday</label><br>
+              <input class="lesson-days-checkbox" type="checkbox" id="wednesday" name="wednesday" value="wednesday">
+              <label for="wednesday">Wednesday</label><br>
+              <input class="lesson-days-checkbox" type="checkbox" id="thursday" name="thursday" value="thursday">
+              <label for="thursday">Thursday</label><br>
+              <input class="lesson-days-checkbox" type="checkbox" id="friday" name="friday" value="friday">
+              <label for="friday">Friday</label><br>
+              <input class="lesson-days-checkbox" type="checkbox" id="saturday" name="saturday" value="saturday">
+              <label for="saturday">Saturday</label><br>
+              <input class="lesson-days-checkbox" type="checkbox" id="sunday" name="sunday" value="sunday">
+              <label for="sunday">Sunday</label><br>
+            </form>
+          </div>
+          <div class="form-container">
+            <!-- <p>Lesson Hours:</p> -->
+            <div class="flex-column">
+              <label for="appt">Lesson Time:</label>
+              <input class="new-group-time" type="time" id="appt" name="appt" min="00:00" max="24:00"
+                pattern="[0-9]{2}:[0-9]{2}" step="900">
+            </div>
+          </div>
+          <button class="btn-submit new-group-confirm" type="submit">
+            Confirm
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="past-lessons-page flex-column-center-width--80 interface hidden">
+      <main class="table">
+        <div class="table-body">
+          <div class="table-head table-grid">
+            <p>id</p>
+            <p>Level</p>
+            <p>Location</p>
+            <p>Students</p>
+            <p>Date</p>
+            <p>Time</p>
+            <p>Status</p>
+          </div>
+
+          <ul class="past-lessons-list table-content">
+
+          </ul>
+        </div>
+      </main>
+    </section>
+
+
+    <!-- *************************************************** -->
+    <!-- *LESSON ON-CLICK MENU -->
+    <div id="actions" class="popup">
+      <div class="popup-content popup-size-med">
+        <button class="big-button actions-button start" href="#"><i class="ph ph-play"></i>Start</button><br>
+        <button class="big-button actions-button feedback-button" href="#"><i
+            class="ph ph-star"></i>Feedback</button><br>
+        <button class="big-button actions-button set-status" href="#"><i class="ph ph-check-square"></i>Set
+          Status</button>
+      </div>
+    </div>
+
+    <!-- *LESSON FEEDBACK MENU -->
+    <div id="feedback" class="popup">
+      <div class="feedback-content flex-column ">
+        <select name="students" title="students-list">
+          <option value="Aysel">Aysel</option>
+          <option value="Ceyhun">Ceyhun</option>
+          <option value="Elvina">Elvina</option>
+          <option value="Norman">Norman</option>
+        </select>
+
+        <div class="rating">
+          <i id="star-1" class="ph star-fill ph-star rating-star"></i>
+          <i id="star-2" class="ph ph-star rating-star"></i>
+          <i id="star-3" class="ph ph-star rating-star"></i>
+          <i id="star-4" class="ph ph-star rating-star"></i>
+          <i id="star-5" class="ph ph-star rating-star"></i>
+        </div>
+
+        <form action="#" method="GET" class="feedback-form flex-column">
+          <textarea name="feedback" rows="5" cols="33" placeholder="Your feedback here"></textarea>
+          <button class="btn-submit feedback-submit" type="submit">
+            Submit
+          </button>
+          <!-- <button class="btn" type="submit">Done</button> -->
+        </form>
+      </div>
+    </div>
+
+    <!-- *SET STATUS MENU -->
+    <div id="status" class="popup">
+      <div class="status-menu flex-column popup-size-med ">
+        <button href="" class="finished-btn big-button status-menu--button"><i
+            class="ph ph-calendar-check"></i></i>Finished</button>
+        <button href="" class="postponed-btn big-button status-menu--button"><i
+            class="ph ph-calendar-blank"></i>Postponed</button>
+        <button class="cancelled-btn big-button status-menu--button"><i class="ph ph-calendar-x"></i>Cancelled</button>
+      </div>
+    </div>
+
+    <!-- *CANCEL REASON -->
+    <div id="cancel-input" class="popup">
+      <div class="feedback-content flex-column">
+        <form action="#" method="GET" class="feedback-form flex-column">
+          <p><label for="cancel-reason">Indicate the reason for cancellation</label></p>
+          <textarea name="cancel-reason" rows="4" cols="33" placeholder="..."></textarea>
+          <button class="btn-submit cancel-confirm menu-button--styling" type="submit" value="Submit">Submit</button>
+          <!-- Submit
+          </button> -->
+          <!-- <button class="btn" type="submit">Done</button> -->
+        </form>
+      </div>
+    </div>
+
+    <!-- *THE CALENDAR -->
+    <div class="calendar-container popup light">
+      <div class="calendar">
+        <div class="calendar-header">
+          <span class="month-picker" id="month-picker">April</span>
+          <div class="year-picker">
+            <span class="year-change" id="prev-year">
+              <pre></pre>
+            </span>
+            <span id="year">2022</span>
+            <span class="year-change" id="next-year">
+              <pre>></pre>
+            </span>
+          </div>
+        </div>
+        <div class="calendar-body">
+          <div class="calendar-week-day">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="calendar-days"></div>
+          <div class="time-body">
+            <!-- <label for="appt">Choose a time for your class:</label> -->
+            <input class="time-widget" type="time" name="appt" min="00:00" max="24:00" pattern="[0-9]{2}:[0-9]{2}">
+          </div>
+          <button class="btn-submit calendar-confirm" type="submit">
+            Submit
+          </button>
+        </div>
+
+        <div class="month-list"></div>
+      </div>
+    </div>
+    <!-- ************************************ -->
+
+
+    </div>
+  </section>
+  <!--* ICON PACK -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!--* DATE LIBRARY -->
+  <script type="text/javascript" src="/Datejs-master/build/date-en-US.js"></script>
+
+  <!--* JS Script -->
+  <script src="/main.js"></script>
+
+  <!--* CALENDAR -->
+  <script src="/calendar.js"></script>
+</body>
+
+</html>
