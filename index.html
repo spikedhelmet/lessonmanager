@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/calendar.css" />
+  <!-- To get rid of favicon -->
+  <link rel="shortcut icon" href="#" />
+
   <title>YouWillSpeak</title>
 </head>
 
@@ -24,29 +27,44 @@
       </div>
       <p class="username">Brad Pitt</p>
       <ul class="menu-list">
-        <li>
+        <li class="menu-list-li">
           <button class="lessons list-item menu-button--styling" href="#">
             <i class="ph ph-chalkboard-teacher"></i>Lessons
           </button>
         </li>
-        <li>
+        <li class="menu-list-li">
           <button class="groups list-item menu-button--styling" href="#">
             <i class="ph ph-student"></i></i>My Groups
           </button>
         </li>
-        <li>
+        <li class="menu-list-li">
           <button class="past-lessons list-item menu-button--styling" href="#"><i class="ph ph-check-square"></i>Past
             Lessons
           </button>
         </li>
-        <li>
+        <li class="menu-list-li">
+          <button class="assignments list-item menu-button--styling" href="#"><i
+              class="ph ph-exam"></i>Assignments</button>
+        </li>
+        <li class="menu-list-li">
+          <button class="demo list-item menu-button--styling" href="#">
+            <i class="ph ph-users"></i>Demo Users
+          </button>
+        </li>
+        <li class="menu-list-li">
+          <button class="finance list-item menu-button--styling" href="#"><i class="ph ph-money"></i>My Finance</button>
+        </li>
+        <li class="menu-list-li">
+          <button class="setting list-item menu-button--styling" href="#"><i class="ph ph-gear"></i>My Settings</button>
+        </li>
+        <li class="menu-list-li">
           <button class="log-out list-item menu-button--styling" href="#"><i class="ph ph-sign-out"></i>Log out</button>
         </li>
       </ul>
     </div>
 
     <!-- * LESSONS PAGE -->
-    <section class="lessons-page flex-column-center-width--80 interface">
+    <section class="lessons-page flex-column-center-width--80 interface hidden">
       <p class="tooltip-text">Click on the table rows to open the lesson menu</p>
       <main class="table">
         <div class="table-body">
@@ -67,7 +85,7 @@
     </section>
 
     <!-- *MY GROUPS PAGE -->
-    <section class="mygroups flex-column-center-width--80 interface hidden">
+    <section class="mygroups flex-column-center-width--80 interface">
       <main class="table">
         <div class="table-body">
           <div class="table-head table-grid groups-grid">
@@ -94,27 +112,23 @@
 
       <!-- *NEW GROUP MENU -->
       <div class="new-group-popup popup">
+        <ul class="user-cards no-dots">
+        </ul>
         <div class="new-group-menu flex-column">
           <div class="form-container">
-            <div>
-              <form action="">
-                <input class="searchbar" type="text" name="search" placeholder="Search users..">
-                <button class="clear">clear</button>
-              </form>
-            </div>
-            <div class="results-container">
-              <ul class="results-list" id="list">
-
+            <div class="search-wrapper">
+              <input class="searchbar" type="input" name="search" placeholder="Search Users" autocomplete="off">
+              <ul class="added-students no-dots">
               </ul>
             </div>
-          </div>
 
+          </div>
           <div class="form-container">
             <p>Lesson Format:</p>
             <form>
               <input type="radio" id="online" name="lesson-format" value="online">
               <label for="online">Online</label><br>
-              <input type="radio" id="on-site" name="lesson-format" value="on-site">
+              <input type="radio" id="on-site" name="lesson-format" value="on-site" autocomplete="off">
               <label for="on-site">On-site</label>
             </form>
           </div>
@@ -189,7 +203,7 @@
     <!-- *************************************************** -->
     <!-- *LESSON ON-CLICK MENU -->
     <div id="actions" class="popup">
-      <div class="popup-content popup-size-med">
+      <div class="popup-content popup-size-med popup-placement-off-top--25">
         <button class="big-button actions-button start" href="#"><i class="ph ph-play"></i>Start</button><br>
         <button class="big-button actions-button feedback-button" href="#"><i
             class="ph ph-star"></i>Feedback</button><br>
@@ -200,7 +214,7 @@
 
     <!-- *LESSON FEEDBACK MENU -->
     <div id="feedback" class="popup">
-      <div class="feedback-content flex-column ">
+      <div class="feedback-content flex-column popup-placement-off-top--25">
         <select name="students" title="students-list">
           <option value="Aysel">Aysel</option>
           <option value="Ceyhun">Ceyhun</option>
@@ -228,7 +242,7 @@
 
     <!-- *SET STATUS MENU -->
     <div id="status" class="popup">
-      <div class="status-menu flex-column popup-size-med ">
+      <div class="status-menu flex-column popup-size-med popup-placement-off-top--25">
         <button href="" class="finished-btn big-button status-menu--button"><i
             class="ph ph-calendar-check"></i></i>Finished</button>
         <button href="" class="postponed-btn big-button status-menu--button"><i
@@ -239,7 +253,7 @@
 
     <!-- *CANCEL REASON -->
     <div id="cancel-input" class="popup">
-      <div class="feedback-content flex-column">
+      <div class="feedback-content flex-column popup-placement-off-top--25">
         <form action="#" method="GET" class="feedback-form flex-column">
           <p><label for="cancel-reason">Indicate the reason for cancellation</label></p>
           <textarea name="cancel-reason" rows="4" cols="33" placeholder="..."></textarea>
@@ -253,7 +267,7 @@
 
     <!-- *THE CALENDAR -->
     <div class="calendar-container popup light">
-      <div class="calendar">
+      <div class="calendar popup-placement-off-top--25">
         <div class="calendar-header">
           <span class="month-picker" id="month-picker">April</span>
           <div class="year-picker">
@@ -294,17 +308,21 @@
 
     </div>
   </section>
+
   <!--* ICON PACK -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <!--* DATE LIBRARY -->
   <script type="text/javascript" src="/Datejs-master/build/date-en-US.js"></script>
 
+
+  <!-- <script src="bundle.js"></script> -->
   <!--* JS Script -->
-  <script src="/main.js"></script>
+  <script src="/scripts/main.js"></script>
 
   <!--* CALENDAR -->
-  <script src="/calendar.js"></script>
+  <script src="/scripts/calendar.js"></script>
+
 </body>
 
 </html>
